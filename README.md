@@ -4,9 +4,8 @@ This server is developed solely for educational purposes and should not be used 
 This is developed to be hosted on Raspberry Pi Zero W board, flashed with Raspberry Pi OS 32-bit.
 This TCP HTTP server will work on any Linux-based system and even Windows with WSL (Windows Subsystem for Linux) or MacOS, not just Raspberry Pi. Also, this server can serve static files like CSS and JavaScript as well, in such cases, the folder structure should be:
 
-```
 ## Project Structure
-
+```
 /tcp_server_project/
 │── server.cpp
 │── TcpServer.cpp
@@ -21,14 +20,16 @@ This TCP HTTP server will work on any Linux-based system and even Windows with W
 
 ```
 
-
-
 However, if you plan to run it on different architectures (e.g., x86 vs. ARM), you should consider the following points:
 
 Works on These Systems:
+
 ✔ Linux (Ubuntu, Debian, Fedora, etc.) – Runs natively.
+
 ✔ MacOS – Works without modification.
+
 ✔ Windows (WSL) – Works via Windows Subsystem for Linux.
+
 ✔ Embedded Devices (Raspberry Pi, Jetson Nano, etc.) – Works with cross-compilation.
 
 
@@ -58,7 +59,7 @@ b. Open the port manually using:
     sudo ufw allow 8080/tcp
 
 
-To test the server in your Linux/ Mac OS server:
+## To test the server in your Linux/ Mac OS server:
 Step 1. Clone the repo
 
 Step 2. Make sure the g++ compiler is already installed, if not, then install the g++.
