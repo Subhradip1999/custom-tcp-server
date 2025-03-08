@@ -1,10 +1,10 @@
 # custom-tcp-server
 A TCP/IP server for serving HTTP responses, using C++.
-This server is developed solely for educational purposes and should not be used as a production-level server. It is a very basic server, and it lacks some modern-day features, like SSL certification, which are  mandatory for a server to become a production-level server.
+This server is developed solely for educational purposes and should not be used as a production-level server. It is a very basic server, and it lacks some modern-day features, like SSL certification, which is  mandatory for a server to become a production-level server.
 This is developed to be hosted on Raspberry Pi Zero W board, flashed with Raspberry Pi OS 32-bit.
 This TCP HTTP server will work on any Linux-based system and even Windows with WSL (Windows Subsystem for Linux) or MacOS, not just Raspberry Pi. Also, this server can serve static files like CSS and JavaScript as well, in such cases, the folder structure should be:
 
-/tcp_server_project/ │── server.cpp │── TcpServer.cpp │── TcpServer.h │── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg
+```/tcp_server_project/ │── server.cpp │── TcpServer.cpp │── TcpServer.h │── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg```
 
 
 However, if you plan to run it on different architectures (e.g., x86 vs. ARM), you should consider the following points:
@@ -44,14 +44,23 @@ b. Open the port manually using:
 
 To test the server in your Linux/ Mac OS server:
 Step 1. Clone the repo
+
 Step 2. Make sure the g++ compiler is already installed, if not, then install the g++.
+
 Step 3. Open the terminal, run below cmd:
+        
         g++ -o server server.cpp TcpServer.cpp
+      
       or, can run make -f MakeFile.txt
+
 Step 4. Once everything is compiled, a bytecode file will be generated in the same folder as "server"
+        
         run below cmd:
+          
           ./server
+
 Step 5. Open any browser and give the address:
+        
         http://localhost:8080
 
 Note: If you are also starting the server in Raspberry Pi, then give ip of your Raspberry Pi instead of localhost.
