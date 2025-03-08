@@ -55,23 +55,20 @@ TcpServer::~TcpServer(){
 }
 
 void TcpServer::start() {
-		signal(SIGINT, signalHandler);
-		
-		
-		while(running){
-			sockaddr_in client_addr;
-			socklen_t client_len = sizeof(client_addr);
-			int client_fd = accept(server_fd, (struct sockaddr*)&client_addr, &client_len);
+    signal(SIGINT, signalHandler);
+    while(running){
+	sockaddr_in client_addr;
+	socklen_t client_len = sizeof(client_addr);
+	int client_fd = accept(server_fd, (struct sockaddr*)&client_addr, &client_len);
+	if (client_fd<0) {
+	    perror("Accept Failed");
+	    continue;
+  	}
 			
-			if (client_fd<0) {
-				perror("Accept Failed");
-				continue;
-			}
-			
-			std::cout << "Client Connected: " << inet_ntoa(client_addr.sin_addr) << std::endl;
-			std::thread(&TcpServer::handleClient, this, client_fd).detach(); // separate threads for handling multiple client requests.
-			//close(client_fd);
-		}
+	std::cout << "Client Connected: " << inet_ntoa(client_addr.sin_addr) << std::endl;
+	std::thread(&TcpServer::handleClient, this, client_fd).detach(); // separate threads for handling multiple client requests.
+	//close(client_fd);
+	}
 }
 
 void TcpServer::stop() {
