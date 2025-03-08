@@ -28,17 +28,27 @@ Works on These Systems:
 
 **Things to Consider When Running on Other Systems**
 1. Port Binding Permissions (Linux & MacOS)
+
 a. Ports below 1024 require root access. If you're using port 80, run with:
      sudo ./server
-  b. Or, use a non-privileged port (e.g., 3000, 8080).
-2. Architecture Differences (x86 vs. ARM)
-  a. If you're running on Raspberry Pi (ARM CPU) but compiling on PC (x86 CPU), you need cross-compilation:
+
+b. Or, use a non-privileged port (e.g., 3000, 8080).
+
+3. Architecture Differences (x86 vs. ARM)
+
+a. If you're running on Raspberry Pi (ARM CPU) but compiling on PC (x86 CPU), you need cross-compilation:
+      
       g++ -o server server.cpp TcpServer.cpp -march=armv7-a
-3. Windows Compatibility
-  a. Windows does not support <unistd.h>. Use WSL or MinGW to compile.
-4. Firewall Rules (Linux & Windows)
-  a. Some systems block incoming TCP connections by default.
-  b. Open the port manually using:
+
+5. Windows Compatibility
+
+a. Windows does not support <unistd.h>. Use WSL or MinGW to compile.
+
+6. Firewall Rules (Linux & Windows)
+
+a. Some systems block incoming TCP connections by default.
+
+b. Open the port manually using:
     sudo ufw allow 8080/tcp
 
 
