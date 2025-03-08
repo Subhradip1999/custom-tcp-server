@@ -4,9 +4,13 @@ This server is developed solely for educational purposes and should not be used 
 This is developed to be hosted on Raspberry Pi Zero W board, flashed with Raspberry Pi OS 32-bit.
 This TCP HTTP server will work on any Linux-based system and even Windows with WSL (Windows Subsystem for Linux) or MacOS, not just Raspberry Pi. Also, this server can serve static files like CSS and JavaScript as well, in such cases, the folder structure should be:
 
+```
 ## Project Structure
 
-```tcp_server_project/ ├── server.cpp ├── TcpServer.cpp ├── TcpServer.h ├── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg```
+tcp_server_project/ ├── server.cpp ├── TcpServer.cpp ├── TcpServer.h ├── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg
+
+```
+
 
 
 However, if you plan to run it on different architectures (e.g., x86 vs. ARM), you should consider the following points:
