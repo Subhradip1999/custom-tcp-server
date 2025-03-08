@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: lightpink;">
+    <head>
+        <title>Will You Be My Valentine?</title>
+    </head>
+    <body>
+        <div id="container-fluid">
+            <h1 style="color: darkred; text-align: center;"> Will You Be My Valentine ? </h1>
+        </div>
+        <div id="buttons" class="centered">
+            <button type="button" id="yes" class="yes-btn" onclick="handleYesClick()">Yes</button>
+            <button type="button" id="No" class="no-btn" onclick="handleNoClick()">No</button>
+        </div>
+
+        <div class="text-container" id="textContainer"></div>
+
+    </body>
+    <style>
+        .centered {
+            display: grid;
+            place-items: center;  /* Centers both buttons in the div */
+            gap: 10px;
+        }
+        .yes-btn {
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+        }
+        .no-btn {
+            background-color: #f44336; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+        }
+
+        .text-container p {
+            font-size: 18px;
+            color: #333;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script>
+        function handleNoClick(){
+            const no_messages = {
+                1: "Are you sure?",
+                2: "Really sure?",
+                3: "Are You positive?",
+                4: "Tepi Please...",
+                5: "Just think about it!",
+                6: "If you say no, then I will be very sad!",
+                7: "I will be very very sad!",
+                8: "I know you will definitely click on YES...!!!",
+                9: "See..! the Yes button is also asking you to click on it!",
+                10: "Hobe na, khelbo na...!!!"
+            }
+            const noButton = document.querySelector(".no-btn");
+            const yesButton = document.querySelector(".yes-btn");
+            if (typeof messageIndex === "undefined") {
+                messageIndex = 1;
+            }
+            noButton.textContent = no_messages[messageIndex];
+            messageIndex = (messageIndex % Object.keys(no_messages).length) + 1;
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = `${currentSize * 1.5}px`;
+        }
+
+        function handleYesClick() {
+            const textContainer = document.getElementById("textContainer");
+
+            // Predefined messages
+            const yes_messages = {
+                1: "Keep going!",
+                2: "You're doing amazing!",
+                3: "Great decision!",
+                4: "You made the right choice!",
+                5: "Jokes apart, You are amazing..!!!",
+                6: "Thank You for everything..!",
+                7: "Happy Valentines Day My Love...!",
+                8: "I Love You Soooo Much <3",    
+            }
+            
+            if (typeof yes_messageIndex === "undefined") {
+                yes_messageIndex = 1;
+            }
+            // Create a new paragraph element
+            const p = document.createElement("p");
+            // p.textContent = messages[Math.floor(Math.random() * messages.length)]; // Random message
+            p.textContent = yes_messages[yes_messageIndex];
+            yes_messageIndex = (yes_messageIndex % Object.keys(yes_messages).length) + 1;
+
+            // Append text to the container
+            textContainer.appendChild(p);
+        }
+    </script>
+</html>
