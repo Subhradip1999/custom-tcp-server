@@ -7,7 +7,17 @@ This TCP HTTP server will work on any Linux-based system and even Windows with W
 ```
 ## Project Structure
 
-tcp_server_project/ ├── server.cpp ├── TcpServer.cpp ├── TcpServer.h ├── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg
+/tcp_server_project/
+│── server.cpp
+│── TcpServer.cpp
+│── TcpServer.h
+│── public/
+│   ├── index.html
+│   ├── styles.css
+│   ├── script.js
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── banner.jpg
 
 ```
 
@@ -57,7 +67,9 @@ Step 3. Open the terminal, run below cmd:
         
         g++ -o server server.cpp TcpServer.cpp
       
-      or, can run make -f MakeFile.txt
+or, can run:
+
+        make -f MakeFile.txt
 
 Step 4. Once everything is compiled, a bytecode file will be generated in the same folder as "server"
         
