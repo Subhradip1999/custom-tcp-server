@@ -4,17 +4,7 @@ This server is developed solely for educational purposes and should not be used 
 This is developed to be hosted on Raspberry Pi Zero W board, flashed with Raspberry Pi OS 32-bit.
 This TCP HTTP server will work on any Linux-based system and even Windows with WSL (Windows Subsystem for Linux) or MacOS, not just Raspberry Pi. Also, this server can serve static files like CSS and JavaScript as well, in such cases, the folder structure should be:
 
-**/tcp_server_project/
-│── server.cpp
-│── TcpServer.cpp
-│── TcpServer.h
-│── public/
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   ├── images/
-│   │   ├── logo.png
-│   │   ├── banner.jpg**
+/tcp_server_project/ │── server.cpp │── TcpServer.cpp │── TcpServer.h │── public/ │ ├── index.html │ ├── styles.css │ ├── script.js │ ├── images/ │ │ ├── logo.png │ │ ├── banner.jpg
 
 
 However, if you plan to run it on different architectures (e.g., x86 vs. ARM), you should consider the following points:
@@ -34,17 +24,17 @@ a. Ports below 1024 require root access. If you're using port 80, run with:
 
 b. Or, use a non-privileged port (e.g., 3000, 8080).
 
-3. Architecture Differences (x86 vs. ARM)
+2. Architecture Differences (x86 vs. ARM)
 
 a. If you're running on Raspberry Pi (ARM CPU) but compiling on PC (x86 CPU), you need cross-compilation:
       
       g++ -o server server.cpp TcpServer.cpp -march=armv7-a
 
-5. Windows Compatibility
+3. Windows Compatibility
 
 a. Windows does not support <unistd.h>. Use WSL or MinGW to compile.
 
-6. Firewall Rules (Linux & Windows)
+4. Firewall Rules (Linux & Windows)
 
 a. Some systems block incoming TCP connections by default.
 
