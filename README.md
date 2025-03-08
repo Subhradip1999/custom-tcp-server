@@ -3,7 +3,8 @@ A TCP/IP server for serving HTTP responses, using C++.
 This server is developed solely for educational purposes and should not be used as a production-level server. It is a very basic server, and it lacks some modern-day features, like SSL certification, which are  mandatory for a server to become a production-level server.
 This is developed to be hosted on Raspberry Pi Zero W board, flashed with Raspberry Pi OS 32-bit.
 This TCP HTTP server will work on any Linux-based system and even Windows with WSL (Windows Subsystem for Linux) or MacOS, not just Raspberry Pi. Also, this server can serve static files like CSS and JavaScript as well, in such cases, the folder structure should be:
-/tcp_server_project/
+
+**/tcp_server_project/
 │── server.cpp
 │── TcpServer.cpp
 │── TcpServer.h
@@ -13,7 +14,7 @@ This TCP HTTP server will work on any Linux-based system and even Windows with W
 │   ├── script.js
 │   ├── images/
 │   │   ├── logo.png
-│   │   ├── banner.jpg
+│   │   ├── banner.jpg**
 
 
 However, if you plan to run it on different architectures (e.g., x86 vs. ARM), you should consider the following points:
@@ -27,7 +28,7 @@ Works on These Systems:
 
 **Things to Consider When Running on Other Systems**
 1. Port Binding Permissions (Linux & MacOS)
-  a. Ports below 1024 require root access. If you're using port 80, run with:
+a. Ports below 1024 require root access. If you're using port 80, run with:
      sudo ./server
   b. Or, use a non-privileged port (e.g., 3000, 8080).
 2. Architecture Differences (x86 vs. ARM)
