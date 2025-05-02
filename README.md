@@ -64,7 +64,7 @@ Step 1. Clone the repo
 
 Step 2. Make sure the g++ compiler is already installed, if not, then install the g++.
 
-Step 3. Open the terminal, run below cmd:
+Step 3. goto custom-tcp-server -> simple_server; Open the terminal, run below cmd:
         
         g++ -o server server.cpp TcpServer.cpp
       
